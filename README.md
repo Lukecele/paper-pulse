@@ -86,7 +86,21 @@ Automatically format literature search results into clean BibTeX entries:
 paper-pulse "ctDNA minimal residual disease" --export bibtex -o references.bib
 ```
 
-### 5. Inspect Abstracts in Verbose Mode
+### 5. Curated Research Presets & Multi-Topic Executive Briefings
+Run pre-configured expert queries across translational oncology and spatial biology:
+
+```bash
+# List available research presets
+paper-pulse --list-presets
+
+# Track EGFR resistance mutations (C797S, MET, etc.)
+paper-pulse --preset egfr-resistance --days 14 --limit 5
+
+# Generate a multi-topic executive briefing across all pillars
+paper-pulse --preset all --days 7 --export markdown -o Weekly_Briefing.md
+```
+
+### 6. Inspect Abstracts in Verbose Mode
 Display full abstract snippets directly in the terminal:
 
 ```bash
@@ -100,6 +114,8 @@ paper-pulse "immunotherapy response prediction" --verbose --limit 3
 | Flag | Short | Description |
 | :--- | :--- | :--- |
 | `query` | — | Search term (e.g. `'osimertinib'`, `'spatial proteomics'`) |
+| `--preset` | — | Run a curated preset (`egfr-resistance`, `ctdna-mrd`, `spatial-immunology`, `all`) |
+| `--list-presets` | — | Display all available curated presets and exit |
 | `--topic` | `-q` | Named topic argument alternative |
 | `--days` | `-d` | Filter papers published within the last $N$ days (e.g. `7`, `30`) |
 | `--limit` | `-n` | Maximum number of results to retrieve (default: `10`) |

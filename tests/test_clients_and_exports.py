@@ -11,7 +11,13 @@ import unittest
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from paper_pulse.models import Paper, ExtractedMetrics
-from paper_pulse.exporters import export_bibtex, export_markdown, export_json, _sanitize_bibtex_key
+from paper_pulse.exporters import (
+    export_bibtex,
+    export_markdown,
+    export_json,
+    export_multi_preset_markdown,
+    _sanitize_bibtex_key
+)
 
 
 class TestModelsAndExporters(unittest.TestCase):
@@ -112,6 +118,41 @@ class TestModelsAndExporters(unittest.TestCase):
             self.assertEqual(len(data), 2)
             self.assertEqual(data[0]["title"], "Targeting EGFR in Non-Small Cell Lung Cancer")
             self.assertEqual(data[1]["is_preprint"], True)
+        finally:
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+
+    def test_export_multi_preset_markdown(self):
+        with tempfile.NamedTemporaryFile(suffix=".md", delete=False) as f:
+            temp_path = f.name
+
+        try:
+            sections = [
+                {
+                    "key": "egfr-resistance",
+                    "title": "EGFR TKI Resistance",
+                    "description": "Acquired resistance mechanisms.",
+                    "query": "osimertinib resistance",
+                    "papers": [self.sample_paper_1]
+                },
+                {
+                    "key": "spatial-immunology",
+                    "title": "Spatial Immunology",
+                    "description": "TME profiling.",
+                    "query": "spatial transcriptomics",
+                    "papers": [self.sample_paper_2]
+                }
+            ]
+            export_multi_preset_markdown(sections, temp_path)
+            with open(temp_path, "r", encoding="utf-8") as f:
+                content = f.read()
+
+            self.assertIn("# 🛰️ Executive Biomedical Literature & Preprint Briefing", content)
+            self.assertIn("1. [EGFR TKI Resistance](#egfr-tki-resistance)", content)
+            self.assertIn("2. [Spatial Immunology](#spatial-immunology)", content)
+            self.assertIn("## EGFR TKI Resistance", content)
+            self.assertIn("## Spatial Immunology", content)
+            self.assertIn("Targeting EGFR in Non-Small Cell Lung Cancer", content)
         finally:
             if os.path.exists(temp_path):
                 os.remove(temp_path)
