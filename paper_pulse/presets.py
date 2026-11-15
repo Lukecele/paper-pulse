@@ -19,5 +19,10 @@ RESEARCH_PRESETS: Dict[str, Dict[str, Any]] = {
         "title": "Spatial Transcriptomics & Tumor Microenvironment Architecture",
         "query": '("spatial transcriptomics" OR "spatial proteomics" OR "spatial biology") AND ("tumor microenvironment" OR "immune infiltration" OR immunotherapy)',
         "description": "High-resolution spatial profiling of tumor-immune cell communication."
+    },
+    "tau-glymphatics": {
+        "title": "Neuro-Glymphatics & Tau Propagation Dynamics",
+        "query": '("DTI-ALPS" OR "perivascular space" OR "glymphatic system" OR "glymphatic clearance") AND ("tau" OR "neurofibrillary tangles" OR "Alzheimer" OR "APOE")',
+        "description": "Multiscale glymphatic perivascular clearance, DTI-ALPS neuroimaging, and pathological Tau spreading dynamics in Alzheimer's disease."
     }
 }
