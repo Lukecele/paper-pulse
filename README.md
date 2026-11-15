@@ -1,8 +1,9 @@
 # 🛰️ paper-pulse
 
 <p align="center">
+  <a href="https://github.com/Lukecele/paper-pulse/actions/workflows/ci.yml"><img src="https://github.com/Lukecele/paper-pulse/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <img src="https://img.shields.io/badge/version-1.0.0-blue.svg?style=flat-square" alt="Version">
-  <img src="https://img.shields.io/badge/python-3.8+-3776AB.svg?style=flat-square&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/python-3.10+-3776AB.svg?style=flat-square&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat-square" alt="License">
   <img src="https://img.shields.io/badge/dependencies-zero-success.svg?style=flat-square" alt="Zero Dependencies">
   <img src="https://img.shields.io/badge/Europe_PMC-PubMed_%2B_bioRxiv_%2B_medRxiv-orange.svg?style=flat-square" alt="Sources">
