@@ -179,7 +179,7 @@ All 14 unit tests run in $<0.01$ seconds with zero third-party requirements.
 ## 👤 Author & Academic Attribution
 
 Developed and maintained by **Luca Celebrano**:
-- 🏛️ MD Candidate, Università degli Studi di Napoli Federico II
+- 🏛️ Independent Computational Oncology Researcher, Naples, Italy
 - 🆔 ORCID: [0009-0007-0931-3555](https://orcid.org/0009-0007-0931-3555)
 - 🐙 GitHub: [@Lukecele](https://github.com/Lukecele)
 - 🌐 Research Portfolio: [lukecele.github.io](https://lukecele.github.io)
